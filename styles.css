@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 32px 16px;
+    background: #f4f6f8;
+    color: #222;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    margin-top: 0;
+}
+
+button {
+    padding: 9px 14px;
+    border: 0;
+    border-radius: 5px;
+    background: #2463eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#statusMessage {
+    min-height: 20px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.task span {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.task.completed span {
+    color: #777;
+    text-decoration: line-through;
+}
+
+.task .delete-button {
+    background: #c93636;
+}
+
+.task .toggle-button {
+    background: #27834a;
+}
+
+@media (max-width: 480px) {
+    .task {
+        flex-wrap: wrap;
+    }
+
+    .task span {
+        flex-basis: 100%;
+    }
+}
