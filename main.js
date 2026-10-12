@@ -11,6 +11,13 @@ const taskManager = new TaskManager();
 function renderTasks() {
     taskList.innerHTML = "";
 
+    if (taskManager.tasks.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.textContent = "No tasks available.";
+        taskList.appendChild(emptyMessage);
+        return;
+    }
+
     taskManager.tasks.forEach((task) => {
         const taskElement = document.createElement("div");
         taskElement.classList.add("task");
@@ -56,7 +63,6 @@ async function loadTasks() {
 
     try {
         const rawTasks = await fetchTasks();
-
         const tasksJson = JSON.stringify(rawTasks);
         const parsedTasks = JSON.parse(tasksJson);
 
@@ -70,12 +76,10 @@ async function loadTasks() {
 
         taskManager.setTasks(taskInstances);
         renderTasks();
-
         statusMessage.textContent = "";
     } catch (error) {
         statusMessage.textContent =
             "Sorry, tasks could not be loaded. Please try again.";
-
         console.error("Error loading tasks:", error);
     } finally {
         loadTasksBtn.disabled = false;
@@ -84,4 +88,3 @@ async function loadTasks() {
 }
 
 loadTasksBtn.addEventListener("click", loadTasks);
-
