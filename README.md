@@ -32,3 +32,13 @@ Make commits as you complete and test each part, using meaningful messages such 
 8. `Write README and test dashboard`
 
 Only commit changes that you have actually made at each stage. Do not create all commits at once just to reach a number; the assignment says commit history may be checked for progress.
+
+## Features
+
+- Loads tasks asynchronously using Promises and async/await.
+- Creates task elements dynamically with DOM methods.
+- Toggles task completion status.
+- Removes tasks from the dashboard.
+- Uses immutable updates to manage task data.
+- Converts task data with JSON.stringify() and JSON.parse().
+- Displays loading and error messages.
